@@ -4,7 +4,6 @@ from scipy.spatial import distance
 import GPy
 from scipydirect import minimize
 import utils
-import TMVN_Entropy as TMVN
 import MultiTaskGPR as MTGP
 from Create_Cells import create_cells
 import warnings
@@ -14,22 +13,22 @@ from multiprocessing import Pool
 import multiprocessing as multi
 
 class ParEGO():
-"""
-This class keep attributes and method about ParEGO
+    """
+    This class keep attributes and method about ParEGO
 
-Attributes
-----------
-x_bounds : list
-    input domain which is optimized.
-x_train : numpy.array
-    observed input data
-y_train : numpy.array
-    observed output data
-rho : float
-    hyper parameter in chebyshev scalarization
-xi : float
-    hyper parameter in Expected Improvement
-"""
+    Attributes
+    ----------
+    x_bounds : list
+        input domain which is optimized.
+    x_train : numpy.array
+        observed input data
+    y_train : numpy.array
+        observed output data
+    rho : float
+        hyper parameter in chebyshev scalarization
+    xi : float
+        hyper parameter in Expected Improvement
+    """
     def __init__(self, x_bounds, x_train, y_train, rho, xi):
         self.x_bounds = x_bounds
         self.x_train = x_train
@@ -40,17 +39,17 @@ xi : float
         self.train_num = y_train.shape[0]
         self.f_theta = np.zeros(self.train_num)
     def calc_parego(self):
-    """
-    get the result of optimized ParEGO
-    """
+        """
+        get the result of optimized ParEGO
+        """
         self.scalarization()
         # res = minimize(self.EI, bounds=self.x_bounds, algomethod=1)
         res = self.EI()
         return res
     def scalarization(self):
-    """
-    scalarize observed output data
-    """
+        """
+        scalarize observed output data
+        """
         #重みのサンプリング
         theta = np.random.random_sample((self.task_num))
         #足して1に調整
@@ -78,10 +77,10 @@ xi : float
             # print(ei)
             return ei
     def EI(self):
-    """
-    construct a GP model for scalarized output data
-    applying EI for this model
-    """
+        """
+        construct a GP model for scalarized output data
+        applying EI for this model
+        """
         kernel = GPy.kern.RBF(self.x_train.shape[1])
         self.model = GPy.models.GPRegression(self.x_train, self.f_theta[:,None],kernel=kernel, normalizer=None)
         self.model['.*Gaussian_noise.variance'].constrain_fixed(1.0e-2)

@@ -4,7 +4,6 @@ from scipy.spatial import distance
 import GPy
 from scipydirect import minimize
 import utils
-import TMVN_Entropy as TMVN
 import MultiTaskGPR as MTGP
 from Create_Cells import create_cells
 import warnings
@@ -13,9 +12,26 @@ from joblib import Parallel, delayed
 from multiprocessing import Pool
 import multiprocessing as multi
 class IEIPV():
-"""
-This class keeps attributes and methods for calculating IEIPV
-"""
+    """
+    This class keeps attributes and methods for calculating IEIPV
+
+    Attributes
+    ----------
+    x_bounds : list
+        input domain which is optimized.
+    x_train : numpy.array
+        observed input data
+    y_train : numpy.array
+        observed output data
+    w_ref : numpy.array
+        reference point at right upper
+    v_ref : numpy.array
+        reference point ar left lower
+    task_num : int
+        the number of objective functions
+    train_num : int
+        the number of observed data
+    """
     def __init__(self, x_bounds, x_train, y_train):
         self.x_bounds = x_bounds
         self.x_train = x_train
@@ -25,6 +41,18 @@ This class keeps attributes and methods for calculating IEIPV
         self.task_num = y_train.shape[1]
         self.train_num = y_train.shape[0]
     def calc_ieipv(self, MOGPI):
+        """
+        obtain the results optimize IEIPV
+
+        Parameters
+        ----------
+        MOGPI : MultiOutputGPIndep
+            Gaussian Process Regression model for each objective function
+        Returns
+        -------
+        res : res
+            result of optimization by DIRECT
+        """
         #cellの作成
         v, w = utils.create_vw(self.y_train, self.v_ref, self.w_ref)
         def obj(x):

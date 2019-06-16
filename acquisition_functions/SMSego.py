@@ -4,7 +4,6 @@ from scipy.spatial import distance
 import GPy
 from scipydirect import minimize
 import utils
-import TMVN_Entropy as TMVN
 import MultiTaskGPR as MTGP
 from Create_Cells import create_cells
 import warnings
@@ -14,6 +13,30 @@ from multiprocessing import Pool
 import multiprocessing as multi
 
 class SMSego():
+    """
+    This class keeps attributes and methods for calculating SMSego
+
+    Attributes
+    ----------
+    x_bounds : list
+        input domain which is optimized.
+    x_train : numpy.array
+        observed input data
+    y_train : numpy.array
+        observed output data
+    w_ref : numpy.array
+        reference point at right upper
+    task_num : int
+        the number of objective functions
+    train_num : int
+        the number of observed data
+    const : float
+        hyperparameter of SMSego
+    current_hypervolume : float
+        pareto hypervolume constructed by current pareto frontier
+    MOGPI : MultiOutputGPIndep
+        Gaussian Process model 
+    """
     def __init__(self, x_bounds, x_train, y_train, MOGPI):
         self.x_bounds = x_bounds
         self.x_train = x_train
@@ -25,6 +48,19 @@ class SMSego():
         self.current_hypervolume = utils.calc_hypervolume(self.y_train, self.w_ref)
         self.MOGPI = MOGPI
     def obj(self, x):
+        """
+        calculating smsego of x
+
+        Paremeters 
+        ----------
+        x : list
+            input point
+
+        Returns 
+        -------
+        smsego : float
+            value of SMSego
+        """
         if np.any(np.all(self.x_train == x, axis=1)):
             return 1.0e5
         else:
@@ -36,6 +72,14 @@ class SMSego():
             # print(smsego)
             return smsego
     def calc_smsego(self):
+        """
+        optimize SMSego
+
+        Returns
+        -------
+        res : res
+            result of optimization by DIRECT
+        """
         #現時点での獲得点が作るパレート超体積を計算
         # print(self.x_bounds)
         # self.MOGPI = MOGPI
