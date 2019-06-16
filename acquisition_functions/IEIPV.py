@@ -5,6 +5,7 @@ import GPy
 from scipydirect import minimize
 import MultiTaskGPR as MTGP
 from Create_Cells import create_cells
+import Create_vw
 import warnings
 import time
 from joblib import Parallel, delayed
@@ -53,7 +54,7 @@ class IEIPV():
             result of optimization by DIRECT
         """
         #cellの作成
-        v, w = utils.create_vw(self.y_train, self.v_ref, self.w_ref)
+        v, w = Create_vw.create_vw(self.y_train, self.v_ref, self.w_ref)
         def obj(x):
             if np.any(np.all(self.x_train == x, axis=1)):
                 return 1.0e5
