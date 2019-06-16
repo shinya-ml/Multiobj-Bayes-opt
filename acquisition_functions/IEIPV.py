@@ -3,7 +3,6 @@ from scipy.stats import *
 from scipy.spatial import distance
 import GPy
 from scipydirect import minimize
-import utils
 import MultiTaskGPR as MTGP
 from Create_Cells import create_cells
 import warnings

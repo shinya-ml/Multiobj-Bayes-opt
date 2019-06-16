@@ -3,7 +3,7 @@ from scipy.stats import *
 from scipy.spatial import distance
 import GPy
 from scipydirect import minimize
-import utils
+import hypervolume
 import MultiTaskGPR as MTGP
 from Create_Cells import create_cells
 import warnings
@@ -67,7 +67,7 @@ class SMSego():
             mean, var = self.MOGPI.predict_one(x)
             lcb = mean - self.const * np.sqrt(var)
             new_y_train = np.append(self.y_train, [lcb], axis = 0)
-            new_hypervolume = utils.calc_hypervolume(new_y_train,self.w_ref)
+            new_hypervolume = hypervolume.calc_hypervolume(new_y_train,self.w_ref)
             smsego = self.current_hypervolume - new_hypervolume
             # print(smsego)
             return smsego
