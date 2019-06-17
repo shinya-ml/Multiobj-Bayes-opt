@@ -18,4 +18,4 @@ If you want to add a new benchmark function, you write according to our implemen
 ---
 You should install some packages before using this software.
 1. GPy : Gaussian Process model framework
-	-  ```Bash  conda install -c conda-forge GPy```
+	-  ```sh  conda install -c conda-forge GPy```
