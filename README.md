@@ -1,6 +1,7 @@
 # Multiobj-Bayes-opt
 
 ## Overview
+---
 Multi-Objective Bayesian Opitmization framework in python.
 We can use acquisition functions such as 
 - ParEGO
@@ -10,3 +11,11 @@ We can use acquisition functions such as
 - IEIPV
 	- > [The computation of the expected improvement in dominated hypervolume of Pareto front approximations](natcomp.liacs.leidenuniv.nl/material/TR-ExI.pdf)
 
+We will prepare many benchmark functions for Multi-Objective Optimization. 
+If you want to add a new benchmark function, you write according to our implementation.
+
+## Installation
+---
+You should install some packages before using this software.
+1. GPy : Gaussian Process model framework
+	-  ```Bash  conda install -c conda-forge GPy```
