@@ -3,15 +3,16 @@ from scipy.stats import *
 from scipy.spatial import distance
 import GPy
 from scipydirect import minimize
-import hypervolume
-import MultiTaskGPR as MTGP
-from Create_Cells import create_cells
 import warnings
 import time
 from joblib import Parallel, delayed
 from multiprocessing import Pool
 import multiprocessing as multi
-
+import os, sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '../models'))
+import MultiOutput_IndepGP
+sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
+import Create_Cells, hypervolume
 class SMSego():
     """
     This class keeps attributes and methods for calculating SMSego
@@ -45,7 +46,7 @@ class SMSego():
         self.task_num = y_train.shape[1]
         self.train_num = y_train.shape[0]
         self.const = 1 / norm.cdf(0.5 + 1/2**self.task_num)
-        self.current_hypervolume = utils.calc_hypervolume(self.y_train, self.w_ref)
+        self.current_hypervolume = hypervolume.calc_hypervolume(self.y_train, self.w_ref)
         self.MOGPI = MOGPI
     def obj(self, x):
         """

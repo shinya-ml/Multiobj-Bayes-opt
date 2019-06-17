@@ -1,0 +1,30 @@
+{
+    "Common":{
+        "initial_number" : 5 ,
+        "max_iteration" : 3 ,
+        "correlation" : "independent"
+    },
+    "ParEGO":{
+        "rho" : 0.05,
+        "xi" : 0
+    },
+    "SMSego":{
+        "beta" : "log"
+    },
+    "PFES":{
+        "sampling_method" : "rfm" ,
+        "sampling_epoch" : 10   
+    },
+    "PFES_correl":{
+        "sampling_method" : "rfm" ,
+        "sampling_epoch" : 10,
+        "correlation" : "correl"   
+    },
+    "CEIPV":{
+        "correlation" : "correl"
+    },
+    "PESMO":{
+        "sampling_method" : "rfm" ,
+        "sampling_epoch" : 10   
+    }
+}

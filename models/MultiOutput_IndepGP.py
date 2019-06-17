@@ -44,7 +44,7 @@ class MultiOutput_IndepGP():
             self.kernel_list.append(model.kern)
             self.model_list.append(model)
         print("model state")
-        for model, i in enumerate(model_list):
+        for i, model in enumerate(self.model_list):
             print("--------model for {}th object--------".format(i))
             print(model)
     def fit(self, x_train, y_train):
@@ -72,7 +72,7 @@ class MultiOutput_IndepGP():
             self.kernel_list.append(model.kern)
             self.model_list.append(model)
         print("model state")
-        for model, i in enumerate(model_list):
+        for i, model in enumerate(self.model_list):
             print("--------model for {}th object--------".format(i))
             print(model)
     def predict_one(self, X):
@@ -148,7 +148,7 @@ class MultiOutput_IndepGP():
         Returns
         -------
         pred_mean : list
-            predict mean of X
+            predict mean of X 
         """
         X_copy = np.array([X])
         pred_mean = []

@@ -1,6 +1,6 @@
 import numpy as np
 import pareto
-import create_cells from Create_Cells
+from Create_Cells import create_cells
 def calc_hypervolume(y, w_ref):
     """
     calculate pareto hypervolume 

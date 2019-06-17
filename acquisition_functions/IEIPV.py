@@ -3,14 +3,16 @@ from scipy.stats import *
 from scipy.spatial import distance
 import GPy
 from scipydirect import minimize
-import MultiTaskGPR as MTGP
-from Create_Cells import create_cells
-import Create_vw
 import warnings
 import time
 from joblib import Parallel, delayed
 from multiprocessing import Pool
 import multiprocessing as multi
+import os, sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '../models'))
+import MultiOutput_IndepGP
+sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
+import Create_vw
 class IEIPV():
     """
     This class keeps attributes and methods for calculating IEIPV
