@@ -17,7 +17,16 @@ If you want to add a new benchmark function, you write according to our implemen
 ## Installation
 ---
 You should install some packages before using this software.
+We recommend using this software under anaconda environment.
 1. GPy : Gaussian Process model framework
 ```sh
-	 conda install -c conda-forge GPy
+	$ conda install -c conda-forge GPy
+```
+2. scipydirect : A python wrapper to the DIRECT algorithm
+```sh
+	$ pip install scipydirect
+```
+3. platypus-opt : A framework for evolutionary computing in python with a focus on Multi-Objective evolutionary algorithms. 
+```sh
+	$ conda install -c conda-forge platypus-opt
 ```
