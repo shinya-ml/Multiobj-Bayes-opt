@@ -1,0 +1,14 @@
+{
+    "Common":{
+        "initial_number" : 1 ,
+        "max_iteration" : 20 ,
+        "correlation" : "independent"
+    },
+    "ParEGO":{
+        "rho" : 0.05,
+        "xi" : 0
+    },
+    "SMSego":{
+        "beta" : "log"
+    }
+}
