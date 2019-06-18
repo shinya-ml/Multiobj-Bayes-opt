@@ -40,10 +40,10 @@ We recommend using this software under anaconda environment.
 		$ python main.py method_name function_name
 	```
 	For example, method_name is ParEGO and function_name is ZDT1 etc...
-	- Experimental settings
+	- Experimental settings \\
 		Default settings are as follows.
-		- # initial points  : 1
-		- Max iteration : 20
+		- the number of initial points  : 1
+		- max iteration : 20
 		- 
 	- Model selection
 		In default setting, we optimize kernel's hyperparameters in GPR models at every iteration.
