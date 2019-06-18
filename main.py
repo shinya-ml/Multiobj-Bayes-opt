@@ -42,7 +42,7 @@ def main():
     f.close()
 
     # 初期点の配置
-    # np.random.seed(seed)
+    np.random.seed(0)
     bounds = [max(x_bounds[i]) - min(x_bounds[i]) for i in range(input_dim)]
     # print(bounds)
     initial_x = np.random.rand(initial_num, input_dim) * bounds + [min(x_bounds[i]) for i in range(input_dim)]

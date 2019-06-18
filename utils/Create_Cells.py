@@ -13,7 +13,6 @@ from scipy.stats import multivariate_normal
 from scipy.stats import mvn
 from scipy.stats import norm
 import itertools as it
-import utils
 
 # @jit
 def create_cells(pf, ref, ref_inv=None):

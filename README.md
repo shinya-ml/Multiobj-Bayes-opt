@@ -11,9 +11,12 @@ We can use acquisition functions such as
 - IEIPV
 	- > [The computation of the expected improvement in dominated hypervolume of Pareto front approximations](natcomp.liacs.leidenuniv.nl/material/TR-ExI.pdf)
 
-We will prepare many benchmark functions for Multi-Objective Optimization. 
+We prepared many benchmark functions for Multi-Objective Optimization such as
+1. ZDT1, 2, 3, 4, 6 (input : 4dim, output : 2dim)
+2. DTLZ1 ~ 7 (input : 6dim, output : 4dim)
+These information are placed as json format in benchmark_functions.
 If you want to add a new benchmark function, you write according to our implementation.
-
+If json file about benchmark function you want to experiment does not exist, experiment will　fail.
 ## Installation
 ---
 You should install some packages before using this software.
@@ -30,3 +33,10 @@ We recommend using this software under anaconda environment.
 ```sh
 	$ conda install -c conda-forge platypus-opt
 ```
+## Usage
+---
+1. Running an experiment
+	```sh
+		$ python main.py method_name function_name
+	```
+	For example, method_name is ParEGO and function_name is ZDT1.
