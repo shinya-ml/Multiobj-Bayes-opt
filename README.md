@@ -40,12 +40,11 @@ We recommend using this software under anaconda environment.
 		$ python main.py method_name function_name
 	```
 	For example, method_name is ParEGO and function_name is ZDT1 etc...
-	- Experimental settings  
+	### Experimental settings  
 		Default settings are as follows.
 		- the number of initial points  : 1
 		- max iteration : 20
-		- 
-	- Model selection
+	### Model selection
 		In default setting, we optimize kernel's hyperparameters in GPR models at every iteration.
 		We fixed the observation noise (= 0.0001) and variance parameter of RBF kernel (= 1.0).
 		If you want to change these settings, please modify ./models/MultiOutput_IndepGP.py. 
