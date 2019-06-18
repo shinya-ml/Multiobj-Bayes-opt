@@ -43,11 +43,11 @@ We recommend using this software under anaconda environment.
 	### Experimental settings  
 	Default settings are as follows.
 	- the number of initial points  : 1
-	- max iteration : 20
+	- max iteration : 20  
 	If you want to these settings, please modify ./config.json.
 	### Model selection
 	In default setting, we optimize kernel's hyperparameters in GPR models at every iteration.
-	We fixed the observation noise (= 0.0001) and variance parameter of RBF kernel (= 1.0).
+	We fixed the observation noise (= 0.0001) and variance parameter of RBF kernel (= 1.0).  
 	If you want to change these settings, please modify ./models/MultiOutput_IndepGP.py. 
 2. Visualization of experimental result
 	```sh
@@ -61,3 +61,13 @@ We recommend using this software under anaconda environment.
 		- **pareto-hypervolume** is popular performance measure of multi-objective bayesian optimization. 
 	- pareto_hypervolume.pdf
 		- This figure shows that the **pareto-frontier** obtained by observed points finally. 
+## Example
+---
+We show the example of usage. acquisition function is ParEGO and benchmark function is ZDT1.
+```sh
+	$ python main.py ParEGO ZDT1
+	$ cd ./plot_results
+	$ python plot_result.py ZDT1
+```
+### Result
+---
