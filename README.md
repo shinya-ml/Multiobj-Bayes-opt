@@ -13,7 +13,7 @@ We can use acquisition functions such as
 
 We prepared many benchmark functions for Multi-Objective Optimization such as
 1. ZDT1, 2, 3, 4, 6 (input : 4dim, output : 2dim)
-2. DTLZ1 ~ 7 (input : 6dim, output : 4dim)
+2. DTLZ1 ~ 7 (input : 6dim, output : 4dim)  
 These information are placed as json format in benchmark_functions.
 If you want to add a new benchmark function, you write according to our implementation.
 If json file about benchmark function you want to experiment does not exist, experiment will　fail.
