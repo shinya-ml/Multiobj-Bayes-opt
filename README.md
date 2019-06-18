@@ -54,3 +54,10 @@ We recommend using this software under anaconda environment.
 		$ cd ./plot_results
 		$ python plot_result.py function_name
 	```
+	After running plot_result.py, two pdf file will be generated in ./results/function_name/. 
+	The name of these files are as follows. 
+	- pareto_frontier.pdf
+		- This figure shows that the **pareto-hypervolume** obtained by observed points at each iteration. 
+		- **pareto-hypervolume** is popular performance measure of multi-objective bayesian optimization. 
+	- pareto_hypervolume.pdf
+		- This figure shows that the **pareto-frontier** obtained by observed points finally. 
