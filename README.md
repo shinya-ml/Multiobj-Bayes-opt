@@ -71,4 +71,4 @@ We show the example of usage. acquisition function is ParEGO and benchmark funct
 ```
 ### Result
 ---
-![pareto_hypervolume](https://github.com/shinya-ml/Multiobj-Bayes-opt/tree/images/pareto_hypervolume.png)
+![pareto_hypervolume](https://raw.githubusercontent.com/shinya-ml/Multiobj-Bayes-opt/images/pareto_hypervolume.png)
