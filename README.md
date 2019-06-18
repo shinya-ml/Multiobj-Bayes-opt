@@ -44,7 +44,13 @@ We recommend using this software under anaconda environment.
 	Default settings are as follows.
 	- the number of initial points  : 1
 	- max iteration : 20
+	If you want to these settings, please modify ./config.json.
 	### Model selection
 	In default setting, we optimize kernel's hyperparameters in GPR models at every iteration.
 	We fixed the observation noise (= 0.0001) and variance parameter of RBF kernel (= 1.0).
 	If you want to change these settings, please modify ./models/MultiOutput_IndepGP.py. 
+2. Visualization of experimental result
+	```sh
+		$ cd ./plot_results
+		$ python plot_result.py function_name
+	```
